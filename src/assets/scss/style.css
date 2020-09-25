@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body {
+  font-family: '微軟正黑體';
+}
+
+p {
+  margin: 0;
+}
+
+h5 > span {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #69f0ae), color-stop(50.1%, rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to top, #69f0ae 50%, rgba(0, 0, 0, 0) 50.1%);
+}
+
+.icon-item {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.card-box {
+  position: relative;
+}
+
+.high-item {
+  height: 110px;
+}
+/*# sourceMappingURL=style.css.map */
