@@ -7,7 +7,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '',
+      path: '/',
       name: '首頁',
       component: () => import('../views/Home.vue')
     }
