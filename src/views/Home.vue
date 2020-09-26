@@ -1,7 +1,7 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="container">
+    <div class="container" id="top-set">
       <div class="row justify-content-center">
         <div class="col-md-8">
           <form>
@@ -38,9 +38,12 @@
               <p>最後登入時間：<span>{{ item.login_at }}</span></p>
             </div>
             <div class="card-footer">
-              <button class="btn btn-primary" @click.prevent="clickItem">Click me</button>
+              <button class="btn btn-hex" @click.prevent="clickItem">Click me</button>
             </div>
           </div>
+        </div>
+        <div v-scroll-to="'#top-set'" class="gotopIcon" id="gotop" style="display:none">
+          <i class="fas fa-arrow-alt-circle-up fa-4x"></i>
         </div>
       </div>
     </div>
@@ -48,6 +51,8 @@
 </template>
 
 <script>
+/* global $ */
+
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 export default {
@@ -123,6 +128,16 @@ export default {
       })
     }
   },
+  mounted () {
+    function showBtnCondition () {
+      if ($(this).scrollTop() > 1200) {
+        $('#gotop').fadeIn()
+      } else {
+        $('#gotop').fadeOut()
+      }
+    }
+    $(window).scroll(showBtnCondition)
+  },
   created () {
     const api = 'https://run.mocky.io/v3/9d5f33ec-0d2f-4743-aac9-5aef32f7badf'
     this.isLoading = true
@@ -131,7 +146,6 @@ export default {
       this.dataLength = res.data.length
       this.isLoading = false
       this.templateData = JSON.parse(JSON.stringify(this.allData))
-      console.log(this.templateData)
     })
   }
 }

@@ -18,3 +18,15 @@ h5 > span{
 .high-item {
     height: 110px;
 }
+.gotopIcon {
+    position: fixed;
+    opacity: 1;
+    bottom: 30px;
+    right: 30px;
+    color: #69f0ae;
+
+    &:hover {
+        color: #12814c;
+        cursor: pointer;
+    }
+}
